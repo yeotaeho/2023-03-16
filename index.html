@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+/* CSS 초기화 */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, 
+cite, code, del, em, img, ins, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, 
+form, label, legend, table, caption, tbody, thead, tfoot, tr, th, td, article, aside, canvas, figcaption, figure, footer, header, 
+hgroup, menu, nav, section, audio, video { margin:0; padding:0; border:0; outline: 0; font-size:100%; vertical-align: baseline; background: transparent; }
+body { line-height: 1; color:#333; }
+article, aside, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+nav ul, li { list-style: none; }
+a { margin:0; padding:0; font-size:100%; vertical-align: baseline; background: transparent; text-decoration: none; }
+img { vertical-align: top; }
+hr { display: block; height: 2px; border:0; margin:0; padding:0; }
+        /*헤더*/
+        header {width:100%; height:auto;  position: absolute;}
+        header > #box {width:1100px; height:50px; margin:0 auto; display:flex; justify-content: space-between; align-items: center; padding: 20px; box-sizing: border-box;}
+        header > #box > p > span {font-size: 13px; color:#fff;}
+        header > #box > p {font-size: 14px; color: #ccc;}
+        header > #box > ul {display: flex;}
+        header > #box > ul > li {font-size: 14px; margin:0px 10px 0px 0px; color: #ccc;}
+        header > #box > ul > li > a > img {width:12px; height:12px; color:#fff;}
+        nav {width:1100px; height:80px; background-color: #1e1e1e; margin:0 auto; border-radius: 2px; display: flex; justify-content: space-between; align-items: center; padding: 20px; box-sizing: border-box; opacity:0.9;}
+        nav ul {display: flex; align-items: center;}
+        nav > a > h3 {color: #e52b34; font-size:20px; opacity:1;}
+        nav > a > h3 > span {font-size: 20px; color: #fff; }
+        nav ul {color: #fff; opacity:1.0;}
+        nav ul > li > a {margin:0px 0px 0px 50px; color:#fff; opacity:1.0;}
+        nav ul > .a > a {color: #e52b34;}
+
+
+        /*slider*/
+        #slider {width:100%; height:100vh; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://preview.colorlib.com/theme/tasteit/images/bg_2.jpg.webp") fixed; background-position:center; background-size: cover; display: flex; justify-content: center; align-content: center; flex-flow:column wrap; } 
+        #slider > h1 {font-size:105px; color: #fff; padding: 10px 0px 30px 0px; line-height: 190px;}
+        #slider > h3 {color: #fff; font-size: 16px; width: 400px; height: 34px; border: 1px solid #fff; text-align: center; padding: 9px 0px 0px 0px; box-sizing: border-box; letter-spacing:10px; margin:0 auto; }
+        #slider > h5 {color: #fff; margin:0 auto; color: #e52b34; letter-spacing:10px;}
+
+
+        /*container*/
+        #container {width:100%; height:auto; background-color: aquamarine; }
+
+
+        /*section*/
+        #section {width: 100%; height:650px; background-color: chocolate;}
+        #section > #sectionbox {width:1100px; height:650px; background-color: snow; margin:0 auto; display:flex;}
+        #section > #sectionbox > .box1 {width:380px; height: 650px; background-color: #e52b34; position:absolute; z-index:2; box-sizing: border-box; padding:30px 50px; display: flex; flex-flow:column wrap; }
+        #section > #sectionbox > .box1 > h3 {margin:15px 0px 20px 0px; color: #fff; font-size: 22px;}
+        input[type="text"],input[type="combobox"] {height: 50px; margin:0px 0px 25px 0px; background-color: #e52b34; border: 0.5px solid #a8a8a8; color:#fff; border-radius: 3px; box-sizing: border-box; padding:10px;}
+        
+        #section > #sectionbox > .box1 > button {height: 65px; border-radius: 5px; border:none; font-size: 18px;}
+        #section > #sectionbox > .box1 > button:hover {color: #e52b34;}
+
+
+        #section > #sectionbox > .box2 {width:1100px; height: 650px; background-image:url("https://preview.colorlib.com/theme/tasteit/images/about.jpg.webp"); position:absolute; z-index:1; background-position:center; background-size: cover;} 
+        #section > #sectionbox > .box2 > .textbox1 {width:720px; height:650px; float: right; display: flex; align-items: center; }
+        #section > #sectionbox > .box2 > .textbox1 > .text1 {width: 38%; height:560px; display: flex; flex-direction: column; justify-content: space-evenly; margin:0px 0px 0px 40px;}
+        #section > #sectionbox > .box2 > .textbox1 > .text1 > h3 > span {color: #e52b34; font-size: 37px; height:20px;}
+        #section > #sectionbox > .box2 > .textbox1 > .text1 > h3 {font-size: 40px;}
+        #section > #sectionbox > .box2 > .textbox1 > .text1 > p {line-height: 30px; font-size:16px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #808080;}
+
+
+
+
+
+        /*imgbox1*/
+        .imgbox1 {width:100%; height: 400px; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://preview.colorlib.com/theme/tasteit/images/bg_3.jpg.webp") fixed; 
+        background-position: center; background-size: cover; display:flex; flex-flow:column wrap; justify-content: center; align-items: center;}
+        .imgbox1 > h3 {color: #fff; letter-spacing: 15px; margin:0px 0px 0px 0px;}
+        .imgbox1 > h2 {color: #fff; padding:20px 0px 10px 0px;}
+        
+        
+        /*menu*/
+        #menubox {width:100%; height: 1956px; background-color: cyan; padding: 128px 0px; box-sizing: border-box;} 
+        #menubox > .menu {width: 1100px; height: 1700px; background-color: aliceblue; margin:0 auto; display:flex; flex-flow:row wrap; justify-content:space-evenly; padding:20px; box-sizing: border-box;}
+        #menubox > .menutext > span {display: block; margin: 0px 0px -20px; font-family:'Times New Roman', Times, serif; color: #eb5860;}
+        #menubox > .menutext > h2,span {text-align: center; font-size:40px;}
+        #menubox > .menu > .menu1 {width: 300px; height: 700px; background-color: burlywood; margin:20px; padding: 45px 10px 5px 10px; box-sizing: border-box; display: flex; flex-flow:row wrap; justify-content: center; border: 1px solid #ccc;}
+        #menubox > .menu > .menu1 > h3 {font-size:22px;}
+        #menubox > .menu > .menu1 > ul > li {width:240px; height: 170px; background-color: aqua; margin:25px 0px 20px 0px; padding:20px 0 0 0; box-sizing: border-box; border-top: 1px solid #ccc;}
+        #menubox > .menu > .menu1 > ul > li > .text2 {width: 160px; height: 149px; background-color: antiquewhite; box-sizing: border-box; padding: 0px 0px 0px 15px;
+            float: right; display: flex; flex-direction: column;justify-content: space-evenly;}
+        #menubox > .menu > .menu1 > ul > li > img {width:80px; height:80px; border-radius: 50px;}
+
+
+        /*imgbox2*/
+        .imgbox2 {width:100%; height: 690px; background-color: darkseagreen; 
+        background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://preview.colorlib.com/theme/tasteit/images/bg_5.jpg.webp") fixed;  background-position: center; background-size: cover;}
+
+
+        /*chef*/
+        #chef {width:100%; height:1100px; background-color: lavender; padding:128px; box-sizing: border-box;}
+        
+        #chef > .cheftext {width: 560px; height: 100px; background-color: antiquewhite; margin:0 auto; padding: 30px;}
+        #chef > .cheftext > span {display: block; margin: 0px 0px -20px; font-family:'Times New Roman', Times, serif; color: #eb5860;}
+        #chef > .cheftext > span,h2 {text-align: center; font-size:40px;}
+        #chef > .chefbox {width: 1100px; height: auto; background-color: cornsilk; margin:0 auto; padding:20px 0px 20px 0px; display: flex; justify-content: space-between; box-sizing: border-box;}
+        #chef > .chefbox > .chefbox1 {width: 260px; height: 581px; background-color: darkgoldenrod; } 
+        #chef > .chefbox > .chefbox1 > img {width: 100%; height: 60%; background-color: bisque;}
+
+
+
+        /*perfact*/
+        #perfact {width:100%; height: 520px; background-color: azure;}
+        #perfact > .perfactbox {width:1100px; height:520px; background-color: darkolivegreen; margin:0 auto; display: flex;}
+        #perfact > .perfactbox > img {width:280px; height:520px; background-color: cornsilk; margin:0px 10px 0px 0px;}
+        #perfact > .perfactbox > .perfacttext {width:510px; height: 520px; background-color:salmon;}
+
+
+
+        /*blog*/
+        #blog {width:100%; height: 1000px; background-color: beige;}
+        #blog > .blogtext {width: 560px; height: 100px; background-color: antiquewhite; margin:0 auto; padding: 30px;}
+        #blog > .blogtext > span {display: block; margin: 0px 0px -20px; font-family:'Times New Roman', Times, serif; color: #eb5860;}
+        #blog > .blogtext > span,h2 {text-align: center; font-size:40px;}
+        #blog > .blogbox {width: 1100px; height:auto; background-color: aqua; margin:0 auto; padding:20px 0px 20px 0px; display: flex; justify-content: space-between; box-sizing: border-box;} 
+        #blog > .blogbox > .blogbox1 {width: 335px; height: 581px; background-color: darkgoldenrod;}
+
+        #redbox {width: 100%; height: 270px; background-color: azure;}
+
+
+
+        /*footer*/
+        footer {width:100%; height: 500px; background-color: cadetblue; margin:0 auto;}
+    </style>
+</head>
+<body>
+    <header>
+        <div id="box">
+            <p>Phone no:<span>+00 1234 567</span>or email us:<span>emailsample@email.com</span></p>
+            <ul>
+                <li>Mon-Fri/9:00-21:00,Sat-sun/10:00-20:00</li>
+                <li><a href="#"><img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/122_Facebook_F_logo_logos-256.png" alt=""></a></li>
+                <li><a href="#"><img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-256.png" alt=""></a></li>
+                <li><a href="#"><img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Twitter_colored_svg-512.png" alt=""></a></li>
+                <li><a href="#"><img src="https://cdn4.iconfinder.com/data/icons/strokeicon-volume-30-social-free/96/social-38-256.png" alt=""></a></li>
+            </ul>
+        </div>
+        <nav>
+            <a href="#"><h3>Taste.<span>it</span></h3></a>
+            <ul>
+                <li class="a"><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">CHEF</a></li>
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">RESERVATION</a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div id="slider">
+        <h3>TASTE.IT RESTAURANT</h3>
+        <h1>Best Quality</h1>
+        <span></span>
+        <h5>FOOD</h5>
+        <span></span>
+    </div>
+
+
+    <div id="container">
+        <div id="section">
+            <div id="sectionbox">
+                <div class="box1">
+                    <h3>BOOK YOUR TABLE</h3>
+                    <input type="text" placeholder="Name" name="Name"> 
+                    <input type="text" placeholder="Email" name="Name">
+                    <input type="text" placeholder="Phone" name="Name">
+                    <input type="text" placeholder="Check-In" name="Name">
+                    <input type="text" placeholder="Time" name="Name">
+                    <input type="combobox" placeholder="Guest" name="Name">
+                    <button>Book You Table Now</button>
+                </div>
+                <div class="box2">
+                    <div class="textbox1">
+                        <div class="text1">
+                    
+                    <h3><span>Alout</span><br>Welcome to <br>Taste.it</h3>
+                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand 
+                        times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its ow
+                        n, safe country. A small river named Duden flows by their place and supplies it with
+                        the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+                    </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="imgbox1">
+            <h3>NOW BOOKING</h3>
+            <h2>Private Dinners & Happy Hours</h2>
+        </div>
+
+
+        <div id="menubox">
+            <div class="menutext">
+                <span>Specialties</span>
+                <h2>Our Menu</h2>
+            </div>
+
+            <div class="menu">
+
+                <div class="menu1">
+                    <h3>BREAKFAST</h3>
+                  <ul>
+                    <li>
+                        <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                        <div class="text2">
+                            <h3>
+                                BEEF
+                                <br>
+                                Roast
+                                <br>
+                                Source
+                            </h3>
+                            <p>Meat, Potatoes,</p>
+                            <p>Rice, Tomatoe</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                        <div class="text2">
+                            <h3>
+                                BEEF
+                                <br>
+                                Roast
+                                <br>
+                                Source
+                            </h3>
+                            <p>Meat, Potatoes,</p>
+                            <p>Rice, Tomatoe</p>
+                        </div>       
+                    </li>
+
+                    <li>
+                        <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                        <div class="text2">
+                            <h3>
+                                BEEF
+                                <br>
+                                Roast
+                                <br>
+                                Source
+                            </h3>
+                            <p>Meat, Potatoes,</p>
+                            <p>Rice, Tomatoe</p>
+                        </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="menu1">
+                    <h3>LUNCH</h3>
+                    <ul>
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>       
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+                      </ul>
+                </div>
+                <div class="menu1">
+                    <h3>DINNER</h3>
+                    <ul>
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>       
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+                      </ul>
+                </div>
+                <div class="menu1">
+                    <h3>DESSERTS</h3>
+                    <ul>
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>       
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+                      </ul>
+                </div>
+                <div class="menu1">
+                    <h3>WINE CARD</h3>
+                    <ul>
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>       
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+                      </ul>
+                </div>
+                <div class="menu1">
+                    <h3>DRINKS & TEA</h3>
+                    <ul>
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>       
+                        </li>
+    
+                        <li>
+                            <img src="https://preview.colorlib.com/theme/tasteit/images/breakfast-1.jpg.webp" alt="">
+                            <div class="text2">
+                                <h3>
+                                    BEEF
+                                    <br>
+                                    Roast
+                                    <br>
+                                    Source
+                                </h3>
+                                <p>Meat, Potatoes,</p>
+                                <p>Rice, Tomatoe</p>
+                            </div>
+                        </li>
+                      </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="imgbox2">
+
+        </div>
+
+        <div id="chef">
+            <div class="cheftext">
+            <span>chef</span>
+            <h2>Our Master Chef</h2>
+            </div>
+            <div class="chefbox">
+                <div class="chefbox1">
+                    <img src="" alt="">
+                    <div class="text3">
+                        <h3></h3>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="chefbox1">
+                    <img src="" alt="">
+                    <div class="text3">
+                        <h3></h3>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="chefbox1">
+                    <img src="" alt="">
+                    <div class="text3">
+                        <h3></h3>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="chefbox1">
+                    <img src="" alt="">
+                    <div class="text3">
+                        <h3></h3>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perfact">
+            <div class="perfactbox">
+            <img src="" alt="">
+
+            <img src="" alt="">
+
+            <div class="perfacttext">
+
+            </div>
+            </div>
+        </div>
+
+
+
+        <div id="blog">
+            <div class="blogtext">
+                <span>Recent Blog</span>
+                <h2>Blog</h2>
+            </div>
+            <div class="blogbox">
+                <div class="blogbox1">
+
+                </div>
+
+                <div class="blogbox1">
+
+                </div>
+
+                <div class="blogbox1">
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="redbox">
+
+        </div>
+    </div>
+
+
+    <footer>
+
+    </footer>
+</body>
+</html>
